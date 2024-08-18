@@ -7,6 +7,16 @@
 
 ![image](https://github.com/user-attachments/assets/df5540ba-80a6-4765-be54-fe3dce32e8cb)
 
+### Test Case Used - 
+
+#### BOM #1 
+
+![image](https://github.com/user-attachments/assets/ac2e3a71-2da3-45bc-bdf7-0e719a414ca3)
+
+#### BOM #2 ( repeats the components in BOM1 )
+
+![image](https://github.com/user-attachments/assets/232c25c5-fbfb-430a-8368-300c3e9aabe0)
+
 
 ### Following is the output of the selection screen and the ALV. 
 #### Selection Screen - 
