@@ -4,7 +4,7 @@ REPORT rcs15001 MESSAGE-ID 29 LINE-SIZE 132
 ***********************************************************************
 *        D A T E N  -  Definitionen                                   *
 ***********************************************************************
-INCLUDE zcs15nnt.
+INCLUDE: zcs15nnt.
 
 *INCLUDE rcs15nnt.                                             "YHG000352
 
@@ -100,64 +100,7 @@ DATA: BEGIN OF wu_memid,                                    "YHG125492
       END OF wu_memid.                                      "YHG125492
 
 
-*---------------------------------------------------------------------*
-*        Selektionsparameter                                          *
-*---------------------------------------------------------------------*
-SELECT-OPTIONS: s_idnrk FOR mara-matnr OBLIGATORY NO INTERVALS.
-PARAMETERS:
-*  Material
-*del PM_IDNRK LIKE STPO-IDNRK MEMORY ID MAT,                  "YHG078090
-  pm_idnrk     LIKE stpo-idnrk MEMORY ID mat NO-DISPLAY,    "YHG078090
-*  Werk
-  pm_werks     LIKE marc-werks MEMORY ID wrk,
-*  Stuecklistenverwendung
-  pm_stlan     LIKE stzu-stlan,
-*  Datum gueltig ab
-  pm_datuv     LIKE stpo-datuv DEFAULT sy-datum,
-*  Datum gueltig bis
-  pm_datub     LIKE stpo-datuv DEFAULT sy-datum,
-*  direkte Verwendung
-*del PM_DIRKT LIKE CSDATA-XFELD DEFAULT 'X',       "YHG000381 "YHG077295
-  pm_dirkt     LIKE csdata-xfeld,                           "YHG077295
-*  Verwendung ueber Klassen
-  pm_uebkl     LIKE csdata-xfeld,                           "YHG000381
-*  mehrstufig
-  pm_mehrs     LIKE csdata-xfeld,                           "YHG125492
-*  Einsatzmenge
-  pm_emeng     LIKE stpo-menge,
-*  zugehoeriges SUBMIT-Hilfsfeld:
-  pm_hemng(13) TYPE n NO-DISPLAY,
-*  Ergebnismenge
-  pm_rmeng     LIKE stpo-menge,
-*  zugehoeriges SUBMIT-Hilfsfeld:
-  pm_hrmng(13) TYPE n NO-DISPLAY,
-  pm_alvsa     LIKE rc29l-valst,                            "HGA246532
-*  Profil zur Bildschirmanzeige
-  pm_dsprf     LIKE klah-class DEFAULT 'SAPCSWSDMP01      ', "YHG109837
-*  Profil beim Druck
-  pm_prprf     LIKE klah-class DEFAULT 'SAPCSWSDMP01      ', "YHG109837
-*  Einschraenken auf Positionstyp
-  pm_postp     LIKE stpo-postp,
-*  Positionslangtext anzeigen
-  pm_ltext     LIKE csdata-xfeld,
-*  Gueltigkeitsbereich anzeigen
-  pm_gbraz     LIKE csdata-xfeld.
 
-PARAMETERS:
-*  EquiStueckliste
-  pm_equtp LIKE csdata-xfeld,                               "YHG110068
-*  KndAuftrStueckliste
-  pm_kndtp LIKE csdata-xfeld,                               "MB075252
-*  ProjektStueckliste
-  pm_prjtp LIKE csdata-xfeld,                               "MBA089075
-*  Materialstueckliste
-  pm_mattp LIKE csdata-xfeld DEFAULT 'X',                   "YHG110068
-*  Standardstueckliste
-  pm_stdtp LIKE csdata-xfeld,                               "YHG110068
-*  TechPlStueckliste
-  pm_tpltp LIKE csdata-xfeld.                               "YHG110068
-
-*  zukuenftig als Parameter definieren
 DATA:                                                       "YHG110068
 *  Dokumentstueckliste
    pm_doctp LIKE csdata-xfeld.                              "YHG110068
@@ -168,11 +111,11 @@ DATA:                                                       "YHG110068
 
 *  reporteigene Konstanten
 DATA:
-  list_id    LIKE klah-class VALUE 'SAPCSWSDM         ',    "YHG108937
+  list_id    LIKE klah-class        ,    "YHG108937
 *  Profil zur Bildschirmanzeige
-  dflt_dsprf LIKE klah-class VALUE 'SAPCSWSDMP01      ',    "YHG135858
+  dflt_dsprf LIKE klah-class ,    "YHG135858
 *  Profil beim Druck
-  dflt_prprf LIKE klah-class VALUE 'SAPCSWSDMP01      '.    "YHG135858
+  dflt_prprf LIKE klah-class .    "YHG135858
 
 DATA:
    cng_level LIKE stpov-level.                              "HGB154389
@@ -241,6 +184,7 @@ DATA:
 *        M A I N  -  Routinen                                         *
 ***********************************************************************
 *eject
+INCLUDE zcs15_sel_screen.
 INITIALIZATION.
 *  CUA-Titel E01 setzen
   SET TITLEBAR 'E01' WITH text-001.
