@@ -16,7 +16,8 @@
 
 #### BOM #2 ( repeats the components in BOM1 )
 
-![image](https://github.com/user-attachments/assets/232c25c5-fbfb-430a-8368-300c3e9aabe0)
+![image](https://github.com/user-attachments/assets/07e92c07-6a87-4268-8795-a3a4401c57d5)
+
 
 
 ### Following is the output of the selection screen and the ALV. 
