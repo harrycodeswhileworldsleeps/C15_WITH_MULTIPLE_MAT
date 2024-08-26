@@ -11,7 +11,8 @@
 
 #### BOM #1 
 
-![image](https://github.com/user-attachments/assets/ac2e3a71-2da3-45bc-bdf7-0e719a414ca3)
+![image](https://github.com/user-attachments/assets/ddf8bff4-4fea-409e-9b54-c5a7e7de7436)
+
 
 #### BOM #2 ( repeats the components in BOM1 )
 
